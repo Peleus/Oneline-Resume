@@ -23,11 +23,11 @@ var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLbioPic = '<img src="%data%" class="biopic center-content">';
+var HTMLwelcomeMsg = '<span class="welcome-message center-content">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskills = '<li class="flex-item center-text"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
@@ -68,6 +68,14 @@ $(document).ready(function() {
     $('#name').html(iName);  
   });
 });
+
+function inName(name){
+  console.log(name);
+  //var nameSplit = name.split(" ");
+  //console.log(nameSplit);
+  //return nameSplit;
+}
+
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.

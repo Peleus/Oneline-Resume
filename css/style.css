@@ -97,10 +97,12 @@ a {
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
+  text-align: center;
 }
 
 #skills-h3 {
   color: #f5ae23;
+  text-align: center;
   display: none;
 }
 
@@ -142,15 +144,22 @@ a {
 }
 
 .center-content {
+  display:block;
   padding: 2.5% 5%;
+  margin: auto;
 }
 
-ul {
+.center-text{
+  text-align: center;
+}
+
+ul,
+li {
   list-style-type: none;
 }
 
 .biopic {
-  float: left;
+  /*float: left;*/
   padding: 10px;
   width: 200px;
   display: none;
