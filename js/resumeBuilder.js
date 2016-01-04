@@ -67,6 +67,17 @@ var projects = {
 	]
 };
 
+//Start education section
+var education ={
+	"schools" : [
+		{"name" : "Pratt Institute",
+		"degree" : "Bechelor of Architecture",
+		"location" : "Brooklyn, NY",
+		"major" : "Architecture"}
+	]
+}
+
+
 //Set up "Bio" in the DOM
 bio.displayBio = function(){
 	var formattedPictureURL = HTMLbioPic.replace("%data%",bio.pictureurl);
@@ -111,7 +122,6 @@ bio.displayBio = function(){
 bio.displayBio();
 
 //Employment
-//Adds the Work Expereince Block
 function dispayWork(){
 	for(job in work.jobs){
 	//Adds the Work Expereince Block
@@ -134,7 +144,6 @@ dispayWork();
 //Set up "Projects" in the DOM
 projects.displayProjects = function(){
 	for(proj in projects.project){
-		console.log(projects.project[proj]);
 	//Adds the Project block
 		$("#projects").append(HTMLprojectStart);
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.project[proj].title);
@@ -152,36 +161,26 @@ projects.displayProjects = function(){
 
 projects.displayProjects()
 
+education.displayEducation = function(){
+	for(school in education.schools){
+		//Education
+		var educationEntry01 = HTMLschoolStart;
+		$("#education").append(educationEntry01);
 
-//Start education section
+		var formattedSchoolname = HTMLschoolName.replace("%data%",education.schools[school].name);
+		$("#education").append(formattedSchoolname);
 
-education["name"] = "Pratt Institute";
-education["degree"] = "Bechelor of Architecture";
-education["location"] = "Brooklyn, NY";
-education["major"] = "Architecture";
+		var formattedSchoollocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
+		$("#education").append(formattedSchoollocation);
 
-
-
-
-
-//Education
-
-var educationEntry01 = HTMLschoolStart;
-$("#education").append(educationEntry01);
-
-var formattedSchoolname = HTMLschoolName.replace("%data%",education.schools.name);
-$("#education").append(formattedSchoolname);
-
-var formattedSchoollocation = HTMLschoolLocation.replace("%data%",education.location);
-$("#education").append(formattedSchoollocation);
-
-var formattedSchoolmajor = HTMLschoolMajor.replace("%data%",education.major);
-$("#education").append(formattedSchoolmajor);
+		var formattedSchoolmajor = HTMLschoolMajor.replace("%data%",education.schools[school].major);
+		$("#education").append(formattedSchoolmajor);
 
 
+	}
+}
 
-
-
+education.displayEducation();
 
 //Custom Functions
 
