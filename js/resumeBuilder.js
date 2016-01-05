@@ -3,7 +3,7 @@
 var bio = {
 	name : "Brett Freese" , 
 	role : "Front End Developer" , 
-	contactinfo : {email : "bfreese@nc.rr.com" , github : "https://github.com/Peleus" , location : "Raleigh" } , 
+	contacts : {email : "bfreese@nc.rr.com" , github : "https://github.com/Peleus" , location : "Raleigh" } , 
 	pictureurl : "images/me.jpg" , 
 	welcomemessage : "Front End Development Portfolio" , 
 	skills : ["HTML" , " CSS" , " Javascript" , " Bootstrap"]
@@ -16,36 +16,22 @@ var  work = {
 			"employer": "Vicious Cycle Software, Inc.",
 			"title": "Senior Level Designer",
 			"location": "Morrisville, NC",
+			"dates" : "2005 - 2015",
 			"description": "Level design stuff"
 		} , 
 		{
 			"employer": "BBH Desigh / Insight Animation",
 			"title": "Director, Design Visualization Services",
 			"location": "Morrisville, NC",
+			"dates" : "2002 - 2005",
 			"description": "Architectural illustration and multimedia"
 		} , 
 		{
 			"employer": "Command Digital Studios",
 			"title": "Multimedia Designer",
 			"location": "Raleigh, NC",
+			"dates" : "2001 - 2002",
 			"description": "Architectural illustration and multimedia"
-		}
-	]
-};
-
-var education = {
-	"schools" : [
-		{
-			"name": "Pratt Institute",
-			"city": "Brooklyn, NY",
-			"degree": "BArch",
-			"major": "Architecture"
-		} , 
-		{
-			"name": "UNC Charlotte",
-			"city": "Charlotte, NC",
-			"degree": "BA",
-			"major": "Architecture"
 		}
 	]
 };
@@ -70,10 +56,20 @@ var projects = {
 //Start education section
 var education ={
 	"schools" : [
-		{"name" : "Pratt Institute",
-		"degree" : "Bechelor of Architecture",
-		"location" : "Brooklyn, NY",
-		"major" : "Architecture"}
+		{
+			"name" : "Pratt Institute",
+			"degree" : "Bechelor of Architecture",
+			"dates" : "1988 - 1994",
+			"location" : "Brooklyn, NY",
+			"major" : "Architecture"
+		},
+		{
+			"name" : "UNC Charlotte",
+			"degree" : "Bechelor of Arts",
+			"dates" : "1990 - 1992",
+			"location" : "Charlotte, NC",
+			"major" : "Architecture"
+		}
 	]
 }
 
@@ -103,14 +99,14 @@ bio.displayBio = function(){
 	}
 
 	//Contact Start
-	var formattedLocation = HTMLlocation.replace("%data%",bio.contactinfo.location);
-	$("#topContacts").prepend(formattedLocation);
+	var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
+	$("#topContacts, #footerContacts").prepend(formattedLocation);
 
-	var formattedGit = HTMLgithub.replace("%data%",bio.contactinfo.github);
-	$("#topContacts").prepend(formattedGit);
+	var formattedGit = HTMLgithub.replace("%data%",bio.contacts.github);
+	$("#topContacts, #footerContacts").prepend(formattedGit);
 
-	var formattedEmail = HTMLemail.replace("%data%",bio.contactinfo.email);
-	$("#topContacts").prepend(formattedEmail);
+	var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+	$("#topContacts, #footerContacts").prepend(formattedEmail);
 
 	//Header
 	var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
@@ -122,24 +118,26 @@ bio.displayBio = function(){
 bio.displayBio();
 
 //Employment
-function dispayWork(){
+work.displayWork = function (){
 	for(job in work.jobs){
 	//Adds the Work Expereince Block
-	
 		$("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
 		// Show Employer
 		$(".work-entry:last").append(formattedEmployer + " " + formattedTitle);
-		//show job location
+		//date
 		var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[job].location);
 		$(".work-entry:last").append(formattedLocation);
+		//show job location
+		var formattedWorkDate = HTMLworkDates.replace("%data%",work.jobs[job].dates);
+		$(".work-entry:last").append(formattedWorkDate);
 		// Show description
 		var formattedworkDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
 		$(".work-entry:last").append(formattedworkDescription);
 	}
 }
-dispayWork();
+work.displayWork();
 
 //Set up "Projects" in the DOM
 projects.displayProjects = function(){
@@ -158,7 +156,6 @@ projects.displayProjects = function(){
 		$(".project-entry:last").append(formattedProjectImage);
 	}
 }
-
 projects.displayProjects()
 
 education.displayEducation = function(){
@@ -168,19 +165,25 @@ education.displayEducation = function(){
 		$("#education").append(educationEntry01);
 
 		var formattedSchoolname = HTMLschoolName.replace("%data%",education.schools[school].name);
-		$("#education").append(formattedSchoolname);
+		var formattedSchooldegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
+		
+		$(".education-entry:last").append(formattedSchoolname + " " + formattedSchooldegree);
+
+		var formattedSchooldates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
+		$(".education-entry:last").append(formattedSchooldates);
 
 		var formattedSchoollocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
-		$("#education").append(formattedSchoollocation);
+		$(".education-entry:last").append(formattedSchoollocation);
 
 		var formattedSchoolmajor = HTMLschoolMajor.replace("%data%",education.schools[school].major);
-		$("#education").append(formattedSchoolmajor);
-
-
+		$(".education-entry:last").append(formattedSchoolmajor);
 	}
 }
 
 education.displayEducation();
+
+$("#mapDiv").append(googleMap);
+
 
 //Custom Functions
 
