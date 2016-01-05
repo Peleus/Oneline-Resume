@@ -1,15 +1,16 @@
 
 //Data Section
+//bio data
 var bio = {
 	name : "Brett Freese" , 
 	role : "Front End Developer" , 
 	contacts : {email : "bfreese@nc.rr.com" , github : "https://github.com/Peleus" , location : "Raleigh" } , 
 	pictureurl : "images/me.jpg" , 
 	welcomemessage : "Front End Development Portfolio" , 
-	skills : ["HTML" , " CSS" , " Javascript" , " Bootstrap"]
+	skills : ["HTML" , " CSS" , " Javascript" , "jQuery", " Bootstrap"]
 };
 
-
+//Work data
 var  work = {
 	"jobs" : [
 		{
@@ -36,6 +37,7 @@ var  work = {
 	]
 };
 
+//Project data
 var projects = {
 	"project" : [
 		{
@@ -53,7 +55,7 @@ var projects = {
 	]
 };
 
-//Start education section
+//Education data
 var education ={
 	"schools" : [
 		{
@@ -98,7 +100,7 @@ bio.displayBio = function(){
 		$("#skills").append(formattedSkills);
 	}
 
-	//Contact Start
+	//Contact Start and footer
 	var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
 	$("#topContacts, #footerContacts").prepend(formattedLocation);
 
@@ -108,16 +110,20 @@ bio.displayBio = function(){
 	var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
 	$("#topContacts, #footerContacts").prepend(formattedEmail);
 
+	$("#mapDiv").append(googleMap);
+
 	//Header
 	var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
 	$("#header").prepend(formattedRole);
 
 	var formattedName = HTMLheaderName.replace("%data%",bio.name);
 	$("#header").prepend(formattedName);
+
+
 }
 bio.displayBio();
 
-//Employment
+//Setup Employment in DOM
 work.displayWork = function (){
 	for(job in work.jobs){
 	//Adds the Work Expereince Block
@@ -139,7 +145,7 @@ work.displayWork = function (){
 }
 work.displayWork();
 
-//Set up "Projects" in the DOM
+//Set up Projects in the DOM
 projects.displayProjects = function(){
 	for(proj in projects.project){
 	//Adds the Project block
@@ -158,6 +164,7 @@ projects.displayProjects = function(){
 }
 projects.displayProjects()
 
+//Set up Education in DOM
 education.displayEducation = function(){
 	for(school in education.schools){
 		//Education
@@ -179,25 +186,13 @@ education.displayEducation = function(){
 		$(".education-entry:last").append(formattedSchoolmajor);
 	}
 }
-
 education.displayEducation();
 
-$("#mapDiv").append(googleMap);
-
-
 //Custom Functions
-
 $(document).click(function(loc){
 	logClicks(loc.pageX,loc.pageY);
 
 });
-
-function logClicks(x,y){
-	console.log("You hit x = " + x);
-	console.log("You hit y = " + y);
-
-}
-
 
 function locationizer(work_obj) {
 
@@ -210,6 +205,3 @@ function locationizer(work_obj) {
     }
     return locationsList;
 }
-
-
-//$("#main").append(internationalizeButton);
