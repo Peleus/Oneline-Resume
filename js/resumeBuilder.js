@@ -170,8 +170,7 @@ projects.display();
 //Set up Education in DOM
 education.display = function(){
 	for(var indexCount = 0; indexCount < education.schools.length; indexCount++){
-	//for(school in education.schools){
-		//Education
+	//Education adds the education block
 		var educationEntry01 = HTMLschoolStart;
 		$("#education").append(educationEntry01);
 
@@ -195,7 +194,6 @@ education.display();
 //Custom Functions
 $(document).click(function(loc){
 	logClicks(loc.pageX,loc.pageY);
-
 });
 
 function locationizer(work_obj) {
@@ -204,8 +202,6 @@ function locationizer(work_obj) {
     for(var job in work_obj.jobs){
         
         locationsList.push(work_obj.jobs[job].location);
-        
-        
     }
     return locationsList;
 }
