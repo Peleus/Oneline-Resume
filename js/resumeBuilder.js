@@ -6,38 +6,38 @@ var bio = {
 	role : "Front End Developer" , 
 	contacts : {
 		mobile : "xxx-xxx-xxxx",
-		email : "bfreese@nc.rr.com", 
-		github : "https://github.com/Peleus", 
-		twitter : "twitter",
+		email : "Bfreese@nc.rr.com", 
+		github : "https://github.com/peleus", 
+		twitter : "User twitter",
 		location : "Raleigh" 
 	} , 
-	biopic : "images/me.jpg" , 
+	biopic : "images/jean-victor-balin-coffee.svg" , 
 	welcomeMessage : "Front End Development Portfolio" , 
-	skills : ["HTML" , " CSS" , " Javascript" , "jQuery", " Bootstrap"]
+	skills : ["HTML" , " CSS" , " Javascript" , "jQuery", "Bootstrap", "Git Bash"]
 };
 
 //Work data
 var  work = {
 	"jobs" : [{
 			"employer": "Vicious Cycle Software, Inc.",
-			"title": "Senior Level Designer",
+			"title": "Senior Designer",
 			"location": "Morrisville, NC",
 			"dates" : "2005 - 2015",
-			"description": "Level design stuff"
+			"description": "I designed user experience, scripted UI and game events, tested software, and participated in UX events on 13 shipped products."
 		} , 
 		{
-			"employer": "BBH Desigh / Insight Animation",
+			"employer": "BBH Design / Insight Animation",
 			"title": "Director, Design Visualization Services",
 			"location": "Morrisville, NC",
 			"dates" : "2002 - 2005",
-			"description": "Architectural illustration and multimedia"
+			"description": "Maintained and modified corporate web sites using HTML and CSS and modified photography and create graphics for web publication"
 		} , 
 		{
 			"employer": "Command Digital Studios",
 			"title": "Multimedia Designer",
 			"location": "Raleigh, NC",
 			"dates" : "2001 - 2002",
-			"description": "Architectural illustration and multimedia"
+			"description": "Scripted interactive software in Director for web, CD, and kiosks. Designed user interfaces with Photoshop and illustrator and created compressed video with audio using Primeire and After Effects"
 		}
 	]
 };
@@ -45,16 +45,16 @@ var  work = {
 //Project data
 var projects = {
 	"project" : [{
-			"title": "455 Central park West Interactive Walkthrough",
+			"title": "455 Central Park West Interactive Walkthrough",
 			"dates": "2001",
-			"description": "455 Central Park West was a multimedia presentation about new condominiums in NYC",
-			"images": "images/197x148.gif"
+			"description": "455 Central Park West presentation intended to market new condominiums in NYC.",
+			"images": "images/455cpw192.png"
 		} ,
 		{
 			"title": "Online Resume",
 			"dates": "2015",
 			"description": "This resume uses Javascript and JQuery to format a skeletal DOM. The project can be viewed on my Git profile.",
-			"images": "images/197x148.gif"
+			"images": "images/ResumeImage.PNG"
 		} 
 	]
 };
